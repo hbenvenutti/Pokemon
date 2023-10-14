@@ -4,11 +4,13 @@ namespace Pokemon.Domain.Player;
 
 public class Direction
 {
-    // ---- properties ------------------------------------------------------ //
+    # region ---- properties ---------------------------------------------------
 
     private Vector2 _value;
 
-    // ---- behaviors ------------------------------------------------------- //
+    # endregion
+
+    # region ---- behaviors ----------------------------------------------------
 
     public void HandleDirection(bool verbose = false)
     {
@@ -25,7 +27,9 @@ public class Direction
             GD.Print(what: $"Direction: {_value}");
     }
 
-    // ---- operators ------------------------------------------------------- //
+    # endregion
+
+    # region ---- implicit operators -------------------------------------------
 
     public static implicit operator Vector2(Direction direction) =>
         direction._value;
@@ -35,7 +39,11 @@ public class Direction
         _value = value
     };
 
-    // ---- overrides ------------------------------------------------------- //
+    # endregion
+
+    # region ---- to string ----------------------------------------------------
 
     public override string ToString() => $"({_value.X}, {_value.Y})";
+
+    # endregion
 }
