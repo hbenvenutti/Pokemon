@@ -3,20 +3,20 @@ using Godot;
 
 namespace Pokemon.Domain.Pokemon.Stats;
 
-public struct Hp
+public class Hp
 {
     # region ---- constants ----------------------------------------------------
 
-    private const ushort BaseMultiplier = 2;
-    private const ushort Constant = 10;
+    private const byte BaseMultiplier = 2;
+    private const byte Constant = 10;
     private const float Percent = 0.01f;
 
     # endregion-----------------------------------------------------------------
 
     # region ---- properties ---------------------------------------------------
-    public ushort Value { get; private set; } = 1;
+    public ushort Value { get; private set; }
     public ushort MaxValue { get; private set; } = 1;
-    public ushort BaseValue { get; private set; } = 1;
+    public ushort BaseValue { get; private set; }
 
     public Ev Ev { get; private set; } = 0;
     public Iv Iv { get; private set; } = new ();
@@ -27,10 +27,10 @@ public struct Hp
 
     # region ---- constructors -------------------------------------------------
 
-    public Hp(ushort value)
+    public Hp(ushort value, byte level = 1)
     {
         BaseValue = value;
-        UpdateMaxValue();
+        UpdateMaxValue(level);
         Value = MaxValue;
     }
 
@@ -38,7 +38,7 @@ public struct Hp
 
     # region ---- update hp ----------------------------------------------------
 
-    private void UpdateMaxValue(ushort level = 1)
+    private void UpdateMaxValue(byte level = 1)
     {
     /*
      ?? HP formula:
@@ -57,11 +57,11 @@ public struct Hp
 
     # region ---- evs / iv -----------------------------------------------------
 
-    public void AddEv(byte value)
+    public void AddEv(byte value, byte level = 1)
     {
         Ev.Add(value);
 
-        UpdateMaxValue();
+        UpdateMaxValue(level);
 
         GD.Print(what: $"EVs: {Ev}");
     }
