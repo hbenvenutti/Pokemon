@@ -3,7 +3,7 @@ using Pokemon.Domain.Player;
 
 namespace Pokemon.Scripts;
 
-public partial class Player : CharacterBody2D
+public partial class PlayerScene : CharacterBody2D
 {
 	# region ---- properties ---------------------------------------------------
 
