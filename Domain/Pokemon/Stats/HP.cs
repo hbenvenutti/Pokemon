@@ -1,25 +1,31 @@
+using System;
 using Godot;
 
-namespace Pokemon.Domain.Pokemon;
+namespace Pokemon.Domain.Pokemon.Stats;
 
 public struct Hp
 {
-    // ---- properties ------------------------------------------------------ //
+    # region ---- constants ----------------------------------------------------
 
-    private const ushort Multiplier = 2;
-    private const ushort Constant = 110;
+    private const ushort BaseMultiplier = 2;
+    private const ushort Constant = 10;
+    private const float Percent = 0.01f;
 
+    # endregion-----------------------------------------------------------------
+
+    # region ---- properties ---------------------------------------------------
     public ushort Value { get; private set; } = 1;
     public ushort MaxValue { get; private set; } = 1;
     public ushort BaseValue { get; private set; } = 1;
+
     public Ev Ev { get; private set; } = 0;
+    public Iv Iv { get; private set; } = new ();
+
     public bool IsDead => Value == 0;
 
-    // todo: EVs
-    // todo: IVs
-    // todo: nature
+    # endregion-----------------------------------------------------------------
 
-    // ---- constructors ---------------------------------------------------- //
+    # region ---- constructors -------------------------------------------------
 
     public Hp(ushort value)
     {
@@ -28,12 +34,30 @@ public struct Hp
         Value = MaxValue;
     }
 
-    // ---- modifiers ------------------------------------------------------- //
+    # endregion-----------------------------------------------------------------
 
-    private void UpdateMaxValue() => MaxValue
-        = (ushort)(BaseValue * Multiplier + Constant);
+    # region ---- update hp ----------------------------------------------------
 
-    public void AddEv(ushort value)
+    private void UpdateMaxValue(ushort level = 1)
+    {
+    /*
+     ?? HP formula:
+     ??   floor(0.01 x (2 x Base + IV + floor(0.25 x EV)) x Level) + Level + 10
+    */
+        var result = Percent
+                     * (BaseMultiplier * BaseValue + Iv + Ev.Coefficient)
+                     * level;
+
+        result += level + Constant;
+
+        MaxValue = (ushort) Math.Floor(result);
+    }
+
+    # endregion ----------------------------------------------------------------
+
+    # region ---- evs / iv -----------------------------------------------------
+
+    public void AddEv(byte value)
     {
         Ev.Add(value);
 
@@ -42,7 +66,9 @@ public struct Hp
         GD.Print(what: $"EVs: {Ev}");
     }
 
-    // ---- damage ---------------------------------------------------------- //
+    # endregion ----------------------------------------------------------------
+
+    # region ---- damage -------------------------------------------------------
 
     public void TakeDamage(ushort amount)
     {
@@ -60,7 +86,9 @@ public struct Hp
         Value = (ushort) result;
     }
 
-    // ---- healing --------------------------------------------------------- //
+    # endregion ----------------------------------------------------------------
+
+    # region ---- healing ------------------------------------------------------
 
     public void Heal(ushort amount)
     {
@@ -96,6 +124,9 @@ public struct Hp
         Value *= (ushort)(result);
     }
 
+    # endregion-----------------------------------------------------------------
+
+    # region ---- revive -------------------------------------------------------
     public void Revive(ushort percent = 0)
     {
         if (!IsDead) return;
@@ -107,13 +138,18 @@ public struct Hp
         GD.Print(what: "Pokemon revived");
     }
 
-    // ---- operators ------------------------------------------------------- //
+    # endregion-----------------------------------------------------------------
+
+    # region ---- operators ----------------------------------------------------
 
     public static implicit operator ushort(Hp hp) => hp.Value;
-
     public static implicit operator Hp(ushort value) => new(value);
 
-    // ---- overrides ------------------------------------------------------- //
+    # endregion-----------------------------------------------------------------
+
+    # region ---- to string ----------------------------------------------------
 
     public override string ToString() => Value.ToString();
+
+    # endregion-----------------------------------------------------------------
 }
