@@ -20,6 +20,8 @@
     <Content Include="Assets\Tiles\water.png" />
     <Content Include="icon.svg" />
     <Content Include="project.godot" />
+    <Content Include="README.md" />
     <Content Include="Scenes\pallet_town.tscn" />
+    <Content Include="Scenes\player.tscn" />
   </ItemGroup>
 </Project>
