@@ -3,4 +3,23 @@
     <TargetFramework>net6.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="Assets\Buildings\buildings.png" />
+    <Content Include="Assets\Buildings\houses_02.png" />
+    <Content Include="Assets\Decoration\fences.png" />
+    <Content Include="Assets\Full_Tiles\full.png" />
+    <Content Include="Assets\Icons\Pokemon\gen1.png" />
+    <Content Include="Assets\Icons\Pokemon\gen2.png" />
+    <Content Include="Assets\Icons\Pokemon\gen3.png" />
+    <Content Include="Assets\Icons\Pokemon\gen4.png" />
+    <Content Include="Assets\Icons\Pokemon\gen5.png" />
+    <Content Include="Assets\Icons\Pokemon\gen6.png" />
+    <Content Include="Assets\Tiles\ground.png" />
+    <Content Include="Assets\Tiles\trees.png" />
+    <Content Include="Assets\Tiles\water.png" />
+    <Content Include="icon.svg" />
+    <Content Include="project.godot" />
+    <Content Include="Scenes\pallet_town.tscn" />
+  </ItemGroup>
 </Project>
