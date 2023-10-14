@@ -6,7 +6,7 @@ public struct Weight
 
     public float Value { get; private set; }
     public float ValueInPounds => Value * 2.205f;
-    public string Pounds => $"{ValueInPounds} Lbs";
+    public string Pounds => $"{ValueInPounds}Lbs";
 
     # endregion
 
@@ -25,7 +25,7 @@ public struct Weight
 
     # region ---- to string ----------------------------------------------------
 
-    public override string ToString() => $"{Value} Kg";
+    public override string ToString() => $"{Value}Kg";
 
     # endregion
 }
