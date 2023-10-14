@@ -4,14 +4,21 @@ namespace Pokemon.Domain.Pokemon;
 
 public struct Hp
 {
-    // ? variables ---------------------------------------------------------- //
+    // ---- properties ------------------------------------------------------ //
+
+    private const ushort Multiplier = 2;
+    private const ushort Constant = 110;
 
     public ushort Value { get; private set; } = 1;
     public ushort MaxValue { get; private set; } = 1;
     public ushort BaseValue { get; private set; } = 1;
     public bool IsDead => Value == 0;
 
-    // ? constructors ------------------------------------------------------- //
+    // todo: EVs
+    // todo: IVs
+    // todo: nature
+
+    // ---- constructors ---------------------------------------------------- //
 
     public Hp(ushort value)
     {
@@ -20,11 +27,12 @@ public struct Hp
         Value = MaxValue;
     }
 
-    // ? modifiers ---------------------------------------------------------- //
+    // ---- modifiers ------------------------------------------------------- //
 
-    private void UpdateMaxValue() => MaxValue = (ushort)(BaseValue * 2 + 110);
+    private void UpdateMaxValue() => MaxValue
+        = (ushort)(BaseValue * Multiplier + Constant);
 
-    // ? damage ------------------------------------------------------------- //
+    // ---- damage ---------------------------------------------------------- //
 
     public void TakeDamage(ushort amount)
     {
@@ -42,7 +50,7 @@ public struct Hp
         Value = (ushort) result;
     }
 
-    // ? heal --------------------------------------------------------------- //
+    // ---- healing --------------------------------------------------------- //
 
     public void Heal(ushort amount)
     {
@@ -89,9 +97,13 @@ public struct Hp
         GD.Print(what: "Pokemon revived");
     }
 
-    // ? operators ---------------------------------------------------------- //
+    // ---- operators ------------------------------------------------------- //
 
     public static implicit operator ushort(Hp hp) => hp.Value;
 
     public static implicit operator Hp(ushort value) => new(value);
+
+    // ---- overrides ------------------------------------------------------- //
+
+    public override string ToString() => Value.ToString();
 }
