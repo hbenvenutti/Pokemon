@@ -18,7 +18,7 @@ public class Bulbasaur : ISpecies
 
     public bool IsBaby { get; init; } = false;
 
-    public EvYield EvYield { get; init; } = Stat.SpecialAttack;
+    public EvYield EvYield { get; init; } = StatEnum.SpecialAttack;
     public Weight Weight { get; init; } = 6.9f;
     public Height Height { get; init; } = 0.7f;
     public BaseStats BaseStats { get; init; } = new(

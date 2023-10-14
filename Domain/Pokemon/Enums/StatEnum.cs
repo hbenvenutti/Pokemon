@@ -1,6 +1,6 @@
 namespace Pokemon.Domain.Pokemon.Enums;
 
-public enum Stat
+public enum StatEnum
 {
     Attack,
     Defense,
