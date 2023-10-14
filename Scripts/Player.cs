@@ -5,16 +5,19 @@ namespace Pokemon.Scripts;
 
 public partial class Player : CharacterBody2D
 {
-	public Speed Speed = 50;
+	# region ---- properties ---------------------------------------------------
 
-	private readonly Direction _direction = Vector2.Zero;
+	public Speed Speed { get; }= 50;
+	public Direction Direction { get; } = Vector2.Zero;
+
+	# endregion
 
 	public override void _PhysicsProcess(double delta)
 	{
 		Speed.HandleTurbo();
-		_direction.HandleDirection();
+		Direction.HandleDirection();
 
-		var movement = (Vector2) _direction * Speed * (float) delta;
+		var movement = (Vector2) Direction * Speed * (float) delta;
 
 		MoveAndCollide(movement);
 	}
