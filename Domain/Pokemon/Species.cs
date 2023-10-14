@@ -4,7 +4,7 @@ using Pokemon.Domain.Pokemon.Structs;
 
 namespace Pokemon.Domain.Pokemon;
 
-public abstract class Species
+public interface ISpecies
 {
     # region ---- properties ---------------------------------------------------
 

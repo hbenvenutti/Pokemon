@@ -6,18 +6,26 @@ public struct EvYield
 {
     # region ---- properties ---------------------------------------------------
 
-    public byte Value { get; }
-    public Stat Stat { get; }
+    private readonly byte value;
+    private readonly Stat stat;
 
     # endregion
 
     # region ---- constructors -------------------------------------------------
 
-    public EvYield(byte value, Stat stat)
+    public EvYield(Stat stat, byte value = 1)
     {
-        Value = value;
-        Stat = stat;
+        this.value = value;
+        this.stat = stat;
     }
+
+    # endregion
+
+    # region ---- implicit operators -------------------------------------------
+
+    public static implicit operator EvYield(Stat stat) => new(stat);
+    public static implicit operator byte(EvYield evYield) => evYield.value;
+    public static implicit operator Stat(EvYield evYield) => evYield.stat;
 
     # endregion
 }
