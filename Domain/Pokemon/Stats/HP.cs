@@ -12,6 +12,7 @@ public struct Hp
     public ushort Value { get; private set; } = 1;
     public ushort MaxValue { get; private set; } = 1;
     public ushort BaseValue { get; private set; } = 1;
+    public Ev Ev { get; private set; } = 0;
     public bool IsDead => Value == 0;
 
     // todo: EVs
@@ -31,6 +32,15 @@ public struct Hp
 
     private void UpdateMaxValue() => MaxValue
         = (ushort)(BaseValue * Multiplier + Constant);
+
+    public void AddEv(ushort value)
+    {
+        Ev.Add(value);
+
+        UpdateMaxValue();
+
+        GD.Print(what: $"EVs: {Ev}");
+    }
 
     // ---- damage ---------------------------------------------------------- //
 
