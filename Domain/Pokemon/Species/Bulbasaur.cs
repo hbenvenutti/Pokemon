@@ -1,5 +1,6 @@
 using Pokemon.Domain.Pokemon.Attributes;
 using Pokemon.Domain.Pokemon.Enums;
+using Pokemon.Domain.Pokemon.Species.Interfaces;
 using Pokemon.Domain.Pokemon.Stats;
 using Pokemon.Domain.Pokemon.Structs;
 

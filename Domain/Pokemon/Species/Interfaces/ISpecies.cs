@@ -2,7 +2,7 @@ using Pokemon.Domain.Pokemon.Attributes;
 using Pokemon.Domain.Pokemon.Stats;
 using Pokemon.Domain.Pokemon.Structs;
 
-namespace Pokemon.Domain.Pokemon;
+namespace Pokemon.Domain.Pokemon.Species.Interfaces;
 
 public interface ISpecies
 {
