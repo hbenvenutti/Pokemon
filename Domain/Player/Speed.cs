@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Pokemon.ValuableObjects;
+namespace Pokemon.Domain.Player;
 
 public struct Speed
 {
@@ -39,6 +39,8 @@ public struct Speed
     // ? operators ---------------------------------------------------------- //
     public static implicit operator ushort(Speed speed) => speed._value;
 
+    public static implicit operator uint(Speed speed) => speed._value;
+
     public static implicit operator Speed(ushort value) => new()
     {
         _baseSpeed = value,
@@ -46,5 +48,6 @@ public struct Speed
     };
 
     // ? overrides ---------------------------------------------------------- //
+
     public override string ToString() => _value.ToString();
 }
