@@ -1,28 +1,28 @@
 using Godot;
 
-namespace Pokemon.Valuable_Objects;
+namespace Pokemon.ValuableObjects;
 
 public struct Speed
 {
     // ? variables ---------------------------------------------------------- //
     private const ushort SpeedBoost = 2;
 
-    private ushort Value;
-    private ushort BaseSpeed;
+    private ushort _value;
+    private ushort _baseSpeed;
 
     // ? modifiers ---------------------------------------------------------- //
     public void SpeedUp(ushort amount)
     {
-        Value *= amount;
+        _value *= amount;
         GD.Print(what: $"Speed boost of {amount}x");
     }
 
-    public void SpeedDown(ushort amount) => Value /= amount;
+    public void SpeedDown(ushort amount) => _value /= amount;
 
     public void ResetSpeed()
     {
-        Value = BaseSpeed;
-        GD.Print(what: $"Speed reset back to {BaseSpeed}");
+        _value = _baseSpeed;
+        GD.Print(what: $"Speed reset back to {_baseSpeed}");
     }
 
     // ? behaviors ---------------------------------------------------------- //
@@ -37,14 +37,14 @@ public struct Speed
     }
 
     // ? operators ---------------------------------------------------------- //
-    public static implicit operator ushort(Speed speed) => speed.Value;
+    public static implicit operator ushort(Speed speed) => speed._value;
 
     public static implicit operator Speed(ushort value) => new()
     {
-        BaseSpeed = value,
-        Value = value
+        _baseSpeed = value,
+        _value = value
     };
 
     // ? overrides ---------------------------------------------------------- //
-    public override string ToString() => Value.ToString();
+    public override string ToString() => _value.ToString();
 }
