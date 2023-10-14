@@ -1,3 +1,4 @@
+using Pokemon.Domain.Pokemon.Attributes;
 using Pokemon.Domain.Pokemon.Stats;
 using Pokemon.Domain.Pokemon.Structs;
 
@@ -16,6 +17,8 @@ public abstract class Species
     public EvYield EvYield { get; init; }
     public string PokedexEntry { get; init; }
     public bool IsBaby { get; init; }
+    public Weight Weight { get; init; }
+    public Height Height { get; init; }
 
     # endregion
 
@@ -31,8 +34,6 @@ public abstract class Species
         base happiness
         moves
         egg moves
-        height
-        weight
         category
     */
 }
