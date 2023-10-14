@@ -2,14 +2,23 @@ using Godot;
 
 namespace Pokemon.Domain.Player;
 
-public struct Speed
+public class Speed
 {
     # region ---- properties ---------------------------------------------------
 
     private const ushort SpeedBoost = 2;
-    private ushort _baseSpeed;
+    private ushort baseSpeed = 50;
 
-    public ushort Value { get; private set; }
+    private ushort Value { get; set; }
+
+    # endregion
+
+    # region ---- constructors -------------------------------------------------
+
+    public Speed()
+    {
+        Value = baseSpeed;
+    }
 
     # endregion
 
@@ -18,6 +27,7 @@ public struct Speed
     public void SpeedUp(ushort amount)
     {
         Value *= amount;
+        GD.Print(what: Value);
         GD.Print(what: $"Speed boost of {amount}x");
     }
 
@@ -25,8 +35,9 @@ public struct Speed
 
     public void ResetSpeed()
     {
-        Value = _baseSpeed;
-        GD.Print(what: $"Speed reset back to {_baseSpeed}");
+        Value = baseSpeed;
+
+        GD.Print(what: $"Speed reset back to {baseSpeed}");
     }
 
     # endregion
@@ -38,9 +49,15 @@ public struct Speed
         if (Input.IsActionJustPressed("ui_speed_up"))
         {
             SpeedUp(amount: SpeedBoost);
+            GD.Print(what: "Turbo Activated");
         }
 
-        if (Input.IsActionJustReleased("ui_speed_up")) { ResetSpeed(); }
+        if (Input.IsActionJustReleased("ui_speed_up"))
+        {
+            ResetSpeed();
+
+            GD.Print(what: "Turbo Deactivated");
+        }
     }
 
     # endregion
@@ -53,7 +70,7 @@ public struct Speed
 
     public static implicit operator Speed(ushort value) => new()
     {
-        _baseSpeed = value,
+        baseSpeed = value,
         Value = value
     };
 
