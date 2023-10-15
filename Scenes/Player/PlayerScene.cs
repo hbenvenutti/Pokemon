@@ -12,17 +12,10 @@ public partial class PlayerScene : CharacterBody2D
 
 	# endregion
 
-	# region ---- nodes --------------------------------------------------------
-
-	// private PlayerSceneSprite sprite;
-
-	# endregion
-
 	# region ---- onready ------------------------------------------------------
 
 	public override void _Ready()
 	{
-		// sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D") as PlayerSceneSprite;
 	}
 
 	# endregion
@@ -36,8 +29,6 @@ public partial class PlayerScene : CharacterBody2D
 
 		var movement = (Vector2) Direction * Speed * (float) delta;
 		MoveAndCollide(movement);
-
-		// sprite.HandleAnimation(Direction);
 	}
 
 	# endregion
