@@ -160,3 +160,4 @@ shape = SubResource("RectangleShape2D_r4j1k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+editor_draw_limits = true
