@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pokemon"
-run/main_scene="res://Scenes/pallet_town.tscn"
+run/main_scene="res://Scenes/Towns/pallet_town.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 

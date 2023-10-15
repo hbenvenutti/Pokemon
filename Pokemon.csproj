@@ -5,23 +5,44 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="Assets\Buildings\buildings.png" />
-    <Content Include="Assets\Buildings\houses_02.png" />
-    <Content Include="Assets\Decoration\fences.png" />
-    <Content Include="Assets\Full_Tiles\full.png" />
     <Content Include="Assets\Icons\Pokemon\gen1.png" />
     <Content Include="Assets\Icons\Pokemon\gen2.png" />
     <Content Include="Assets\Icons\Pokemon\gen3.png" />
     <Content Include="Assets\Icons\Pokemon\gen4.png" />
     <Content Include="Assets\Icons\Pokemon\gen5.png" />
     <Content Include="Assets\Icons\Pokemon\gen6.png" />
-    <Content Include="Assets\Tiles\ground.png" />
-    <Content Include="Assets\Tiles\trees.png" />
-    <Content Include="Assets\Tiles\water.png" />
+    <Content Include="Assets\Sprites\Player\Sprites\red.png" />
+    <Content Include="Assets\Sprites\Player\Sprites\red.png.import" />
+    <Content Include="Assets\TileSets\Buildings\buildings.png" />
+    <Content Include="Assets\TileSets\Buildings\buildings.png.import" />
+    <Content Include="Assets\TileSets\Buildings\houses_02.png" />
+    <Content Include="Assets\TileSets\Buildings\houses_02.png.import" />
+    <Content Include="Assets\TileSets\Decoration\fences.png" />
+    <Content Include="Assets\TileSets\Decoration\fences.png.import" />
+    <Content Include="Assets\TileSets\Ground\ground.png" />
+    <Content Include="Assets\TileSets\Ground\ground.png.import" />
+    <Content Include="Assets\TileSets\Ground\water.png" />
+    <Content Include="Assets\TileSets\Ground\water.png.import" />
+    <Content Include="Assets\TileSets\Vegetation\trees.png" />
+    <Content Include="Assets\TileSets\Vegetation\trees.png.import" />
     <Content Include="icon.svg" />
     <Content Include="project.godot" />
     <Content Include="README.md" />
-    <Content Include="Scenes\pallet_town.tscn" />
-    <Content Include="Scenes\player.tscn" />
+    <Content Include="Scenes\Player\player.tscn" />
+    <Content Include="Scenes\Towns\pallet_town.tscn" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Assets\Buildings\**" />
+    <Compile Remove="Assets\Decoration\**" />
+    <Compile Remove="Assets\Full_Tiles\**" />
+    <Compile Remove="Assets\Player\**" />
+    <Compile Remove="Assets\Tiles\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Assets\Buildings\**" />
+    <EmbeddedResource Remove="Assets\Decoration\**" />
+    <EmbeddedResource Remove="Assets\Full_Tiles\**" />
+    <EmbeddedResource Remove="Assets\Player\**" />
+    <EmbeddedResource Remove="Assets\Tiles\**" />
   </ItemGroup>
 </Project>
