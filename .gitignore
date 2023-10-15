@@ -1,3 +1,6 @@
+# project
+Assets/**/*.png
+
 # Godot 4+ specific ignores
 .godot/
 ### JetBrains template
