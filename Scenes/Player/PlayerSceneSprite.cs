@@ -7,7 +7,7 @@ public partial class PlayerSceneSprite : AnimatedSprite2D
 {
 	private PlayerScene player;
 
-	# region built-in methods --------------------------------------------------
+	# region ---- built-in methods ---------------------------------------------
 
 	public override void _Ready()
 	{
@@ -21,11 +21,18 @@ public partial class PlayerSceneSprite : AnimatedSprite2D
 
 	# endregion
 
-	public void HandleAnimation()
+	# region ---- behaviors ----------------------------------------------------
+
+	private void HandleAnimation()
 	{
 		if (player.Direction == Vector2.Zero)
 		{
-			Stop();
+			if (IsPlaying())
+			{
+				GD.Print(what: $"Stopping animation");
+
+				Stop();
+			}
 
 			return;
 		}
@@ -39,6 +46,15 @@ public partial class PlayerSceneSprite : AnimatedSprite2D
 			_ => Animation
 		};
 
-		Play();
+		if (!IsPlaying())
+		{
+			Frame = 1;
+
+			GD.Print(what: $"Playing animation");
+
+			Play();
+		}
 	}
+
+	# endregion
 }

@@ -1,6 +1,5 @@
-[gd_scene load_steps=23 format=3 uid="uid://bsxff2tey3ka1"]
+[gd_scene load_steps=22 format=3 uid="uid://bsxff2tey3ka1"]
 
-[ext_resource type="Texture2D" uid="uid://dh2ancu2imyug" path="res://icon.svg" id="1_7cg6j"]
 [ext_resource type="Script" path="res://Scenes/Player/PlayerScene.cs" id="1_k4c6t"]
 [ext_resource type="Texture2D" uid="uid://4422lullhulk" path="res://Assets/Sprites/Player/Sprites/red.png" id="2_mdfnl"]
 [ext_resource type="Script" path="res://Scenes/Player/PlayerSceneSprite.cs" id="3_ptump"]
@@ -154,15 +153,10 @@ sprite_frames = SubResource("SpriteFrames_14okl")
 animation = &"walking_down"
 script = ExtResource("3_ptump")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.0947398, 0.0947398)
-texture = ExtResource("1_7cg6j")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)
 scale = Vector2(0.540335, -2.70759)
 shape = SubResource("RectangleShape2D_r4j1k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+zoom = Vector2(4, 4)
