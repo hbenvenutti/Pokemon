@@ -1,36 +1,12 @@
-<Project Sdk="Godot.NET.Sdk/4.1.0">
+<Project Sdk="Godot.NET.Sdk/4.1.2">
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include=".gitignore" />
-    <Content Include="Assets\Icons\Pokemon\gen1.png" />
-    <Content Include="Assets\Icons\Pokemon\gen2.png" />
-    <Content Include="Assets\Icons\Pokemon\gen3.png" />
-    <Content Include="Assets\Icons\Pokemon\gen4.png" />
-    <Content Include="Assets\Icons\Pokemon\gen5.png" />
-    <Content Include="Assets\Icons\Pokemon\gen6.png" />
-    <Content Include="Assets\Sprites\Player\Sprites\red.png" />
-    <Content Include="Assets\Sprites\Player\Sprites\red.png.import" />
-    <Content Include="Assets\TileSets\Buildings\buildings.png" />
-    <Content Include="Assets\TileSets\Buildings\buildings.png.import" />
-    <Content Include="Assets\TileSets\Buildings\houses_02.png" />
-    <Content Include="Assets\TileSets\Buildings\houses_02.png.import" />
-    <Content Include="Assets\TileSets\Decoration\decoration.png" />
-    <Content Include="Assets\TileSets\Decoration\fences.png" />
-    <Content Include="Assets\TileSets\Decoration\fences.png.import" />
-    <Content Include="Assets\TileSets\Ground\ground.png" />
-    <Content Include="Assets\TileSets\Ground\ground.png.import" />
-    <Content Include="Assets\TileSets\Ground\water.png" />
-    <Content Include="Assets\TileSets\Ground\water.png.import" />
-    <Content Include="Assets\TileSets\Vegetation\trees.png" />
-    <Content Include="Assets\TileSets\Vegetation\trees.png.import" />
     <Content Include="icon.svg" />
     <Content Include="project.godot" />
     <Content Include="README.md" />
-    <Content Include="Scenes\Player\player.tscn" />
-    <Content Include="Scenes\Towns\pallet_town.tscn" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Assets\Buildings\**" />
@@ -38,6 +14,14 @@
     <Compile Remove="Assets\Full_Tiles\**" />
     <Compile Remove="Assets\Player\**" />
     <Compile Remove="Assets\Tiles\**" />
+    <Compile Remove="Assets\TileSets\Buildings\**" />
+    <Compile Remove="Assets\TileSets\Decoration\**" />
+    <Compile Remove="Assets\TileSets\Ground\**" />
+    <Compile Remove="Assets\TileSets\Vegetation\**" />
+    <Compile Remove="Assets\TileSets\**" />
+    <Compile Remove="Assets\Sprites\**" />
+    <Compile Remove="Assets\Icons\**" />
+    <Compile Remove="Assets\**" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="Assets\Buildings\**" />
@@ -45,5 +29,16 @@
     <EmbeddedResource Remove="Assets\Full_Tiles\**" />
     <EmbeddedResource Remove="Assets\Player\**" />
     <EmbeddedResource Remove="Assets\Tiles\**" />
+    <EmbeddedResource Remove="Assets\TileSets\Buildings\**" />
+    <EmbeddedResource Remove="Assets\TileSets\Decoration\**" />
+    <EmbeddedResource Remove="Assets\TileSets\Ground\**" />
+    <EmbeddedResource Remove="Assets\TileSets\Vegetation\**" />
+    <EmbeddedResource Remove="Assets\TileSets\**" />
+    <EmbeddedResource Remove="Assets\Sprites\**" />
+    <EmbeddedResource Remove="Assets\Icons\**" />
+    <EmbeddedResource Remove="Assets\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scenes\Towns\" />
   </ItemGroup>
 </Project>
