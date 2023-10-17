@@ -1,5 +1,6 @@
 # project
 Assets/**/*.png
+Build/
 
 # Godot 4+ specific ignores
 .godot/
