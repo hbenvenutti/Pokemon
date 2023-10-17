@@ -142,3 +142,4 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_7kk80")
 animation = &"walk_up"
 script = ExtResource("2_n14sx")
+metadata/_edit_lock_ = true

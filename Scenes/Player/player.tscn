@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsxff2tey3ka1"]
+[gd_scene load_steps=6 format=3 uid="uid://bsxff2tey3ka1"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerScene.cs" id="1_k4c6t"]
+[ext_resource type="Script" path="res://Scenes/Player/InteractionZone.cs" id="3_4ik65"]
 [ext_resource type="PackedScene" uid="uid://qx6frlddp01o" path="res://Scenes/Player/Sprites/red_sprite.tscn" id="4_tahi3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4e57"]
@@ -8,8 +9,8 @@ radius = 2.0
 height = 10.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_imo14"]
-radius = 6.0
-height = 20.0
+radius = 3.0
+height = 12.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_k4c6t")
@@ -19,9 +20,9 @@ metadata/_edit_lock_ = true
 position = Vector2(0, 2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_n4e57")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 zoom = Vector2(4, 4)
 editor_draw_limits = true
 metadata/_edit_lock_ = true
@@ -29,12 +30,12 @@ metadata/_edit_lock_ = true
 [node name="Red" parent="." instance=ExtResource("4_tahi3")]
 position = Vector2(0, -10)
 scale = Vector2(0.460152, 0.460152)
-metadata/_edit_lock_ = true
 
 [node name="InteractionZone" type="Marker2D" parent="."]
 light_mask = 0
 visibility_layer = 2
 position = Vector2(0, -10)
+script = ExtResource("3_4ik65")
 metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="InteractionZone"]
@@ -43,7 +44,5 @@ collision_mask = 2
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone/Area2D"]
-position = Vector2(0, 4)
-rotation = 1.5708
 shape = SubResource("CapsuleShape2D_imo14")
 metadata/_edit_lock_ = true
