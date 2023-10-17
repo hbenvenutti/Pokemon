@@ -1,0 +1,23 @@
+# interactions:
+- signs dialog;
+
+# player:
+- player not "walk" when collides with a wall;
+- implement command pattern for inputs;
+
+# pokemon
+- pokemon party;
+- pokemon spawning on high grass;
+- battle system;
+- pokedex;
+
+# UI:
+- route/town name;
+- pokemon in party;
+- minimap;
+- pokemon in area;
+
+# features:
+- time system;
+- weather system;
+- day/night cycle;

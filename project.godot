@@ -46,6 +46,7 @@ interaction={
 
 2d_physics/layer_1="Collision"
 2d_physics/layer_2="Interaction"
+2d_physics/layer_3="Location"
 
 [rendering]
 

@@ -5,7 +5,7 @@ namespace Pokemon.Scenes.Towns;
 
 public partial class PalletTown : Node2D
 {
-	private const string TownName = "Pallet Town";
+	public const string TownName = "Pallet Town";
 
 	private UiInfoManager uiInfoManager;
 
