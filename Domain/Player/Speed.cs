@@ -1,4 +1,6 @@
+using System.Threading.Tasks;
 using Godot;
+using Pokemon.Domain.Player.Structs;
 
 namespace Pokemon.Domain.Player;
 
@@ -6,9 +8,10 @@ public class Speed
 {
     # region ---- properties ---------------------------------------------------
 
-    private const ushort SpeedBoost = 2;
-    private ushort baseSpeed = 50;
-    private ushort value;
+    private const byte SpeedBoost = 2;
+    private readonly byte baseSpeed = 50;
+    private byte value;
+    public bool IsBoosted => value > baseSpeed;
 
     # endregion
 
@@ -19,35 +22,38 @@ public class Speed
         value = baseSpeed;
     }
 
+    private Speed(byte value)
+    {
+        baseSpeed = value;
+        this.value = value;
+    }
+
     # endregion
 
     # region ---- modifiers ----------------------------------------------------
 
-    public void SpeedUp(ushort amount) => value *= amount;
+    private void SpeedUp(byte amount) => value *= amount;
 
-    public void SpeedDown(ushort amount) => value /= amount;
+    public void SpeedDown(byte amount) => value /= amount;
 
-    public void ResetSpeed() => value = baseSpeed;
+    private void ResetSpeed() => value = baseSpeed;
 
     # endregion
 
     # region ---- behaviors ----------------------------------------------------
 
-    public void HandleTurbo()
+    public async void HandleTurboAsync() => await Task.Run(() =>
     {
-        if (Input.IsActionJustPressed("ui_speed_up"))
+        if (Input.IsActionJustPressed(InputActions.SpeedUp))
         {
             SpeedUp(amount: SpeedBoost);
-            GD.Print(what: "Turbo Activated");
         }
 
-        if (Input.IsActionJustReleased("ui_speed_up"))
+        if (Input.IsActionJustReleased(InputActions.SpeedUp))
         {
             ResetSpeed();
-
-            GD.Print(what: "Turbo Deactivated");
         }
-    }
+    });
 
     # endregion
 
@@ -57,11 +63,9 @@ public class Speed
 
     public static implicit operator uint(Speed speed) => speed.value;
 
-    public static implicit operator Speed(ushort value) => new()
-    {
-        baseSpeed = value,
-        value = value
-    };
+    public static implicit operator byte(Speed speed) => speed.value;
+
+    public static implicit operator Speed(byte value) => new(value);
 
     # endregion
 
