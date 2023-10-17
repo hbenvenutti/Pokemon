@@ -1,6 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmhotgl6dn5lx"]
 
-[ext_resource type="Script" path="res://Scenes/Misc/Interactions/InteractionManager.cs" id="1_r33ve"]
+[ext_resource
+    type="Script"
+    path="res://Domain/Map/Interactive/InteractionManager/InteractionManager.cs"
+    id="1_r33ve"
+]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0tj1a"]
 

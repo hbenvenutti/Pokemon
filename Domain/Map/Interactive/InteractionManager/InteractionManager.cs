@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using Godot;
+using Pokemon.Domain.Player.Structs;
+using Pokemon.Scenes.Misc.Interactions;
 using Pokemon.Scenes.Player;
-using Pokemon.Scenes.Structs;
 
-namespace Pokemon.Scenes.Misc.Interactions;
+namespace Pokemon.Domain.Map.Interactive.InteractionManager;
 
 public partial class InteractionManager : Node2D
 {
@@ -11,8 +12,8 @@ public partial class InteractionManager : Node2D
 
 	private const string BaseText = "?";
 
-	private readonly IList<InteractionArea> activeAreas =
-		new List<InteractionArea>();
+	private readonly IList<InteractiveArea.InteractiveArea> activeAreas =
+		new List<InteractiveArea.InteractiveArea>();
 
 	[ExportGroup(name: "C#")]
 	[Export] private bool canInteract = true;
@@ -86,12 +87,12 @@ public partial class InteractionManager : Node2D
 
 	# region ---- observers ----------------------------------------------------
 
-	public void RegisterArea(InteractionArea area)
+	public void RegisterArea(InteractiveArea.InteractiveArea area)
 	{
 		activeAreas.Add(area);
 	}
 
-	public void UnregisterArea(InteractionArea area)
+	public void UnregisterArea(InteractiveArea.InteractiveArea area)
 	{
 		activeAreas.Remove(area);
 	}

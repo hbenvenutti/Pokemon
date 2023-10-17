@@ -1,6 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://dodh44ybn2iba"]
 
-[ext_resource type="Script" path="res://Scenes/Locations/Towns/Pallet/PalletTown.cs" id="1_8dfi7"]
+[ext_resource
+    type="Script"
+    path="res://Domain/Map/Locations/Towns/Pallet/PalletTown.cs"
+    id="1_8dfi7"
+]
 [ext_resource type="Texture2D" uid="uid://cgts2a3jq0f6r" path="res://Assets/TileSets/Decoration/decoration.png" id="2_xbvx3"]
 [ext_resource type="Texture2D" uid="uid://yvesnvo37lr2" path="res://Assets/TileSets/Buildings/buildings.png" id="3_fi1ik"]
 [ext_resource type="Texture2D" uid="uid://dfsr1rot52nps" path="res://Assets/TileSets/Ground/water.png" id="4_0h6s5"]
@@ -8,9 +12,24 @@
 [ext_resource type="Texture2D" uid="uid://day05as0dcrbl" path="res://Assets/TileSets/Decoration/fences.png" id="6_tud8u"]
 [ext_resource type="Texture2D" uid="uid://m4cw6f88ya2q" path="res://Assets/TileSets/Vegetation/trees.png" id="7_857tf"]
 [ext_resource type="Texture2D" uid="uid://dnert5b8sw6aa" path="res://Assets/TileSets/Ground/ground.png" id="8_gt255"]
-[ext_resource type="PackedScene" uid="uid://bsxff2tey3ka1" path="res://Scenes/Player/Player.tscn" id="9_kdp8i"]
-[ext_resource type="PackedScene" uid="uid://b0d7opq5f1rak" path="res://Scenes/Misc/Interactions/Sign/sign.tscn" id="10_sdn2f"]
-[ext_resource type="PackedScene" uid="uid://ct1jhjg4equor" path="res://Scenes/Locations/Components/LocationArea/LocationsArea.tscn" id="11_tkfan"]
+[ext_resource
+    type="PackedScene"
+    uid="uid://bsxff2tey3ka1"
+    path="res://Domain/Player/Scenes/Player.tscn"
+    id="9_kdp8i"
+]
+[ext_resource
+    type="PackedScene"
+    uid="uid://b0d7opq5f1rak"
+    path="res://Scenes/Misc/Interactions/Sign/sign.tscn"
+    id="10_sdn2f"
+]
+[ext_resource
+    type="PackedScene"
+    uid="uid://ct1jhjg4equor"
+    path="res://Domain/Map/Locations/Components/LocationPerimeter/LocationPerimeter.tscn"
+    id="11_tkfan"
+]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vao62"]
 resource_name = "decoration_01"
@@ -12092,10 +12111,10 @@ position = Vector2(280, 328)
 z_index = 1
 position = Vector2(151, 216)
 
-[node name="LocationArea" parent="." instance=ExtResource("11_tkfan")]
+[node name="LocationPerimeter" parent="." instance=ExtResource("11_tkfan")]
 position = Vector2(103, 276)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LocationArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LocationPerimeter"]
 shape = SubResource("CircleShape2D_dwumw")
 metadata/_edit_lock_ = true

@@ -1,6 +1,7 @@
 using Godot;
+using Pokemon.Scenes.Player;
 
-namespace Pokemon.Scenes.Player;
+namespace Pokemon.Domain.Player.Scenes.InteractionZone;
 
 public partial class InteractionZone : Marker2D
 {
@@ -47,7 +48,6 @@ public partial class InteractionZone : Marker2D
 				RotationDegrees = 90;
 				break;
 		}
-
 	}
 
 	# endregion

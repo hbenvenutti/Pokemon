@@ -1,4 +1,4 @@
-namespace Pokemon.Scenes.Locations.Interfaces;
+namespace Pokemon.Domain.Map.Interfaces;
 
 public interface ILocation
 {

@@ -1,8 +1,21 @@
 [gd_scene load_steps=6 format=3 uid="uid://bsxff2tey3ka1"]
 
-[ext_resource type="Script" path="res://Scenes/Player/PlayerScene.cs" id="1_k4c6t"]
-[ext_resource type="Script" path="res://Scenes/Player/InteractionZone.cs" id="3_4ik65"]
-[ext_resource type="PackedScene" uid="uid://qx6frlddp01o" path="res://Scenes/Player/Sprites/red_sprite.tscn" id="4_tahi3"]
+[ext_resource
+    type="Script"
+    path="res://Domain/Player/Scenes/PlayerScene.cs"
+    id="1_k4c6t"
+]
+[ext_resource
+    type="Script"
+    path="res://Domain/Player/Scenes/InteractionZone/InteractionZone.cs"
+    id="3_4ik65"
+]
+[ext_resource
+    type="PackedScene"
+    uid="uid://qx6frlddp01o"
+    path="res://Domain/Player/Scenes/Sprite/RedSprite.tscn"
+    id="4_tahi3"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4e57"]
 radius = 2.0

@@ -1,7 +1,7 @@
 using Godot;
-using Pokemon.Scenes.Locations.Interfaces;
+using Pokemon.Domain.Map.Interfaces;
 
-namespace Pokemon.Scenes.Locations.Towns.Pallet;
+namespace Pokemon.Domain.Map.Locations.Towns.Pallet;
 
 public partial class PalletTown : Node2D, ILocation
 {

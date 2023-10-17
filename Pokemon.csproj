@@ -4,6 +4,14 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Domain\Map\Interactive\InteractionManager\InteractionManager.tscn" />
+    <Content Include="Domain\Map\Interactive\InteractiveArea\InteractiveArea.tscn" />
+    <Content Include="Domain\Map\Interactive\Signs\Sign.tscn" />
+    <Content Include="Domain\Map\Locations\Components\LocationPerimeter\LocationPermiter.tscn" />
+    <Content Include="Domain\Map\Locations\Towns\Pallet\PalletTown.tscn" />
+    <Content Include="Domain\Player\Scenes\Player.tscn" />
+    <Content Include="Domain\Player\Scenes\Sprite\RedSprite.tscn" />
+    <Content Include="Domain\Ui\UiInfoManager\UiInfoManager.tscn" />
     <Content Include="icon.svg" />
     <Content Include="project.godot" />
     <Content Include="README.md" />
@@ -38,5 +46,8 @@
     <EmbeddedResource Remove="Assets\Sprites\**" />
     <EmbeddedResource Remove="Assets\Icons\**" />
     <EmbeddedResource Remove="Assets\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\Map\Locations\Routes\" />
   </ItemGroup>
 </Project>

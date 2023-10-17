@@ -1,15 +1,15 @@
 using Godot;
 
-namespace Pokemon.Scenes.Misc.Interactions;
+namespace Pokemon.Domain.Map.Interactive.InteractiveArea;
 
-public partial class InteractionArea : Area2D
+public partial class InteractiveArea : Area2D
 {
     # region ---- properties ---------------------------------------------------
 
     [ExportGroup(name: "C#")]
     [Export] public string ActionName { get; set; } = "interact";
 
-    private InteractionManager InteractionManager { get; set; }
+    private InteractionManager.InteractionManager InteractionManager { get; set; }
     public Marker2D LabelPosition;
 
     public Callable Interact { get; set; }
@@ -21,7 +21,7 @@ public partial class InteractionArea : Area2D
     public override void _Ready()
     {
         InteractionManager =
-            GetNode<InteractionManager>(path:"/root/InteractionManager");
+            GetNode<InteractionManager.InteractionManager>(path:"/root/InteractionManager");
 
         LabelPosition = GetNode<Marker2D>(path: "LabelPosition");
 

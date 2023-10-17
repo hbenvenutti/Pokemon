@@ -1,8 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://ct1jhjg4equor"]
 
-[ext_resource type="Script" path="res://Scenes/Locations/Components/LocationArea/LocationAreaScene.cs" id="1_4budk"]
+[ext_resource
+    type="Script"
+    path="res://Domain/Map/Locations/Components/LocationPerimeter/LocationPerimeterScene.cs"
+    id="1_4budk"
+]
 
-[node name="LocationArea" type="Area2D"]
+[node name="LocationPerimeter" type="Area2D"]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_4budk")

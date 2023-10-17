@@ -1,10 +1,10 @@
 using Godot;
-using Pokemon.Scenes.Locations.Interfaces;
+using Pokemon.Domain.Map.Interfaces;
 using Pokemon.Scenes.Ui;
 
-namespace Pokemon.Scenes.Locations.Components.LocationArea;
+namespace Pokemon.Domain.Map.Locations.Components.LocationPerimeter;
 
-public partial class LocationAreaScene : Area2D
+public partial class LocationPerimeterScene : Area2D
 {
 	# region ---- nodes --------------------------------------------------------
 

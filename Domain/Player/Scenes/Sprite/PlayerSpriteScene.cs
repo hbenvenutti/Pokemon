@@ -1,7 +1,8 @@
 using Godot;
 using Pokemon.Domain.Player.Structs;
+using Pokemon.Scenes.Player;
 
-namespace Pokemon.Scenes.Player.Sprites;
+namespace Pokemon.Domain.Player.Scenes.Sprite;
 
 public partial class PlayerSpriteScene : AnimatedSprite2D
 {
