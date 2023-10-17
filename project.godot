@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Pokemon"
-run/main_scene="res://Scenes/Towns/pallet_town.tscn"
+run/main_scene="res://Scenes/Locations/Towns/Pallet/PalletTown.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 InteractionManager="*res://Scenes/Misc/Interactions/interaction_manager.tscn"
-UiInfoManager="*res://Scenes/Ui/ui_info.tscn"
+UiInfoManager="*res://Scenes/Ui/UiInfoManager.tscn"
 
 [display]
 

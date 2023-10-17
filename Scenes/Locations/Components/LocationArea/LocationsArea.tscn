@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ct1jhjg4equor"]
 
-[ext_resource type="Script" path="res://Scenes/Towns/Location.cs" id="1_4budk"]
+[ext_resource type="Script" path="res://Scenes/Locations/Components/LocationArea/LocationAreaScene.cs" id="1_4budk"]
 
 [node name="LocationArea" type="Area2D"]
 collision_layer = 0

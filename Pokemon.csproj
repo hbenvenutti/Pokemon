@@ -39,7 +39,4 @@
     <EmbeddedResource Remove="Assets\Icons\**" />
     <EmbeddedResource Remove="Assets\**" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scenes\Towns\" />
-  </ItemGroup>
 </Project>

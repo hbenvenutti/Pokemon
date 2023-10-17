@@ -23,21 +23,11 @@ public class Speed
 
     # region ---- modifiers ----------------------------------------------------
 
-    public void SpeedUp(ushort amount)
-    {
-        value *= amount;
-        GD.Print(what: value);
-        GD.Print(what: $"Speed boost of {amount}x");
-    }
+    public void SpeedUp(ushort amount) => value *= amount;
 
     public void SpeedDown(ushort amount) => value /= amount;
 
-    public void ResetSpeed()
-    {
-        value = baseSpeed;
-
-        GD.Print(what: $"Speed reset back to {baseSpeed}");
-    }
+    public void ResetSpeed() => value = baseSpeed;
 
     # endregion
 

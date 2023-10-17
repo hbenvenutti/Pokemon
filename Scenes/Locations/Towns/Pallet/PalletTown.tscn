@@ -1,19 +1,20 @@
-[gd_scene load_steps=19 format=3 uid="uid://dodh44ybn2iba"]
+[gd_scene load_steps=21 format=3 uid="uid://dodh44ybn2iba"]
 
-[ext_resource type="Script" path="res://Scenes/Towns/PalletTown.cs" id="1_1wb4j"]
-[ext_resource type="Texture2D" uid="uid://cgts2a3jq0f6r" path="res://Assets/TileSets/Decoration/decoration.png" id="1_5intj"]
-[ext_resource type="Texture2D" uid="uid://yvesnvo37lr2" path="res://Assets/TileSets/Buildings/buildings.png" id="1_x0kbd"]
-[ext_resource type="Texture2D" uid="uid://dfsr1rot52nps" path="res://Assets/TileSets/Ground/water.png" id="2_2w37h"]
-[ext_resource type="Texture2D" uid="uid://beqmyoglwf347" path="res://Assets/TileSets/Buildings/houses_02.png" id="3_ym3w6"]
-[ext_resource type="Texture2D" uid="uid://m4cw6f88ya2q" path="res://Assets/TileSets/Vegetation/trees.png" id="4_5f2x3"]
-[ext_resource type="Texture2D" uid="uid://dnert5b8sw6aa" path="res://Assets/TileSets/Ground/ground.png" id="5_kfccb"]
-[ext_resource type="PackedScene" uid="uid://bsxff2tey3ka1" path="res://Scenes/Player/player.tscn" id="6_expgl"]
-[ext_resource type="Texture2D" uid="uid://day05as0dcrbl" path="res://Assets/TileSets/Decoration/fences.png" id="6_meutu"]
-[ext_resource type="PackedScene" uid="uid://b0d7opq5f1rak" path="res://Scenes/Misc/Interactions/Sign/sign.tscn" id="8_i4a6e"]
+[ext_resource type="Script" path="res://Scenes/Locations/Towns/Pallet/PalletTown.cs" id="1_8dfi7"]
+[ext_resource type="Texture2D" uid="uid://cgts2a3jq0f6r" path="res://Assets/TileSets/Decoration/decoration.png" id="2_xbvx3"]
+[ext_resource type="Texture2D" uid="uid://yvesnvo37lr2" path="res://Assets/TileSets/Buildings/buildings.png" id="3_fi1ik"]
+[ext_resource type="Texture2D" uid="uid://dfsr1rot52nps" path="res://Assets/TileSets/Ground/water.png" id="4_0h6s5"]
+[ext_resource type="Texture2D" uid="uid://beqmyoglwf347" path="res://Assets/TileSets/Buildings/houses_02.png" id="5_2j5yq"]
+[ext_resource type="Texture2D" uid="uid://day05as0dcrbl" path="res://Assets/TileSets/Decoration/fences.png" id="6_tud8u"]
+[ext_resource type="Texture2D" uid="uid://m4cw6f88ya2q" path="res://Assets/TileSets/Vegetation/trees.png" id="7_857tf"]
+[ext_resource type="Texture2D" uid="uid://dnert5b8sw6aa" path="res://Assets/TileSets/Ground/ground.png" id="8_gt255"]
+[ext_resource type="PackedScene" uid="uid://bsxff2tey3ka1" path="res://Scenes/Player/Player.tscn" id="9_kdp8i"]
+[ext_resource type="PackedScene" uid="uid://b0d7opq5f1rak" path="res://Scenes/Misc/Interactions/Sign/sign.tscn" id="10_sdn2f"]
+[ext_resource type="PackedScene" uid="uid://ct1jhjg4equor" path="res://Scenes/Locations/Components/LocationArea/LocationsArea.tscn" id="11_tkfan"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vao62"]
 resource_name = "decoration_01"
-texture = ExtResource("1_5intj")
+texture = ExtResource("2_xbvx3")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -263,7 +264,7 @@ texture = ExtResource("1_5intj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dj0a7"]
 resource_name = "houses_01"
-texture = ExtResource("1_x0kbd")
+texture = ExtResource("3_fi1ik")
 38:0/0 = 0
 38:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 38:0/0/physics_layer_0/angular_velocity = 0.0
@@ -4225,7 +4226,7 @@ texture = ExtResource("1_x0kbd")
 58:10/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0hk7"]
-texture = ExtResource("2_2w37h")
+texture = ExtResource("4_0h6s5")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -5204,7 +5205,7 @@ texture = ExtResource("2_2w37h")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1aqj5"]
 resource_name = "houses_02"
-texture = ExtResource("3_ym3w6")
+texture = ExtResource("5_2j5yq")
 58:0/0 = 0
 58:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 58:0/0/physics_layer_0/angular_velocity = 0.0
@@ -6353,7 +6354,7 @@ texture = ExtResource("3_ym3w6")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xendw"]
 resource_name = "fences_01"
-texture = ExtResource("6_meutu")
+texture = ExtResource("6_tud8u")
 9:0/0 = 0
 9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:0/0/physics_layer_0/angular_velocity = 0.0
@@ -6658,7 +6659,7 @@ texture = ExtResource("6_meutu")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfqa2"]
 resource_name = "trees"
-texture = ExtResource("4_5f2x3")
+texture = ExtResource("7_857tf")
 18:0/0 = 0
 18:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:0/0/physics_layer_0/angular_velocity = 0.0
@@ -10695,7 +10696,7 @@ texture = ExtResource("4_5f2x3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sswf"]
 resource_name = "ground"
-texture = ExtResource("5_kfccb")
+texture = ExtResource("8_gt255")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -12018,10 +12019,13 @@ sources/3 = SubResource("TileSetAtlasSource_1aqj5")
 sources/0 = SubResource("TileSetAtlasSource_vao62")
 sources/4 = SubResource("TileSetAtlasSource_xendw")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwumw"]
+radius = 314.916
+
 [node name="Pallet_Town" type="Node2D" groups=["player"]]
 y_sort_enabled = true
 texture_filter = 1
-script = ExtResource("1_1wb4j")
+script = ExtResource("1_8dfi7")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -12075,15 +12079,23 @@ layer_6/z_index = 0
 layer_6/tile_data = PackedInt32Array(1638409, 2490379, 5, 1966089, 2490379, 5, 1441801, 2490379, 5, 2293769, 2555915, 5, 2359309, 2621451, 5)
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("6_expgl")]
+[node name="Player" parent="." instance=ExtResource("9_kdp8i")]
 z_index = 1
 z_as_relative = false
 position = Vector2(200, 179)
 
-[node name="Sign" parent="." instance=ExtResource("8_i4a6e")]
+[node name="Sign" parent="." instance=ExtResource("10_sdn2f")]
 z_index = 1
 position = Vector2(280, 328)
 
-[node name="Sign2" parent="." instance=ExtResource("8_i4a6e")]
+[node name="Sign2" parent="." instance=ExtResource("10_sdn2f")]
 z_index = 1
 position = Vector2(151, 216)
+
+[node name="LocationArea" parent="." instance=ExtResource("11_tkfan")]
+position = Vector2(103, 276)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LocationArea"]
+shape = SubResource("CircleShape2D_dwumw")
+metadata/_edit_lock_ = true

@@ -16,8 +16,15 @@
 - pokemon in party;
 - minimap;
 - pokemon in area;
+- fonts;
 
 # features:
 - time system;
 - weather system;
 - day/night cycle;
+
+# audio
+- background music;
+- sound effects;
+- player walking sound effect;
+- player running sound effect;
