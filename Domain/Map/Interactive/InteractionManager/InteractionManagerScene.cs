@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Godot;
 using Pokemon.Domain.Player.Structs;
-using Pokemon.Scenes.Player;
 
 namespace Pokemon.Domain.Map.Interactive.InteractionManager;
 
@@ -21,7 +20,6 @@ public partial class InteractionManagerScene : Node2D
 
 	# region ---- nodes --------------------------------------------------------
 
-	public PlayerScene Player;
 	private Label label;
 
 	# endregion
@@ -30,9 +28,6 @@ public partial class InteractionManagerScene : Node2D
 
 	public override void _Ready()
 	{
-
-		if (Player is null) GD.Print(what: $"Player is null");
-
 		label = GetNode<Label>(path: "Label");
 
 		label.Text = BaseText;
@@ -52,21 +47,22 @@ public partial class InteractionManagerScene : Node2D
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event.IsActionPressed(InputActions.Interact) && canInteract)
+		if (!canInteract) { return; }
+
+		if (!@event.IsActionPressed(InputActions.Interact)) { return; }
+
+		if (activeAreas.Count == 0)
 		{
-			if (activeAreas.Count == 0)
-			{
-				return;
-			}
-
-			canInteract = false;
-
-			label.Hide();
-
-			activeAreas[0].Interact.Call();
-
-			canInteract = true;
+			return;
 		}
+
+		canInteract = false;
+
+		label.Hide();
+
+		activeAreas[0].Interact.Call();
+
+		canInteract = true;
 	}
 
 	# endregion
