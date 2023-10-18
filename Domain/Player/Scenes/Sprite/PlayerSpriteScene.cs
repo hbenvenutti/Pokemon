@@ -1,11 +1,16 @@
 using Godot;
 using Pokemon.Domain.Player.Structs;
+using Pokemon.Scenes.Player;
 
-namespace Pokemon.Scenes.Player;
+namespace Pokemon.Domain.Player.Scenes.Sprite;
 
-public partial class PlayerSceneSprite : AnimatedSprite2D
+public partial class PlayerSpriteScene : AnimatedSprite2D
 {
+	# region ---- nodes --------------------------------------------------------
+
 	private PlayerScene player;
+
+	# endregion
 
 	# region ---- built-in methods ---------------------------------------------
 
@@ -27,17 +32,14 @@ public partial class PlayerSceneSprite : AnimatedSprite2D
 	{
 		if (player.Direction == Vector2.Zero)
 		{
-			if (IsPlaying())
-			{
-				GD.Print(what: $"Stopping animation");
+			if (!IsPlaying()) { return; }
 
-				Stop();
-			}
+			Stop();
 
 			return;
 		}
 
-		Animation = (Vector2) player.Direction switch
+		Animation = (Vector2)player.Direction switch
 		{
 			{ Y: >= 1 } => PlayerAnimations.WalkDown,
 			{ Y: <= -1 } => PlayerAnimations.WalkUp,
@@ -46,14 +48,11 @@ public partial class PlayerSceneSprite : AnimatedSprite2D
 			_ => Animation
 		};
 
-		if (!IsPlaying())
-		{
-			Frame = 1;
+		if (IsPlaying()) { return; }
 
-			GD.Print(what: $"Playing animation");
+		Frame = 1;
 
-			Play();
-		}
+		Play();
 	}
 
 	# endregion

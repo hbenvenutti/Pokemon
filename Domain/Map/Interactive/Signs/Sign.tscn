@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0d7opq5f1rak"]
+
+[ext_resource
+    type="Texture2D"
+    uid="uid://cgts2a3jq0f6r"
+    path="res://Assets/TileSets/Decoration/decoration.png" id="1_kcg48"
+]
+[ext_resource
+    type="Script"
+    path="res://Domain/Map/Interactive/Signs/Sign.cs"
+    id="1_n30a7"
+]
+[ext_resource
+    type="PackedScene"
+    uid="uid://ngf2drkqs4t"
+    path="res://Domain/Map/Interactive/InteractiveArea/InteractiveArea.tscn"
+    id="3_4uhop"
+]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hsih"]
+size = Vector2(14, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n32re"]
+radius = 3.0
+
+[node name="Sign" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_n30a7")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kcg48")
+hframes = 8
+vframes = 12
+frame = 12
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_7hsih")
+metadata/_edit_lock_ = true
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_4uhop")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_n32re")
+metadata/_edit_lock_ = true

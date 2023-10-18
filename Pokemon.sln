@@ -2,6 +2,15 @@
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokemon", "Pokemon.csproj", "{7B2674C4-D75B-4D58-A371-371832841E58}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "itens", "itens", "{EFBECBEE-DF05-4FA0-9211-460C78D0C2AA}"
+	ProjectSection(SolutionItems) = preProject
+		icon.svg = icon.svg
+		README.md = README.md
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FB28A765-9989-4615-802F-D49E9E0FB3E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 	Debug|Any CPU = Debug|Any CPU
@@ -15,5 +24,8 @@ Global
 		{7B2674C4-D75B-4D58-A371-371832841E58}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{7B2674C4-D75B-4D58-A371-371832841E58}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{7B2674C4-D75B-4D58-A371-371832841E58}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B2674C4-D75B-4D58-A371-371832841E58} = {FB28A765-9989-4615-802F-D49E9E0FB3E4}
 	EndGlobalSection
 EndGlobal

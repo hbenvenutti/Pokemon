@@ -24,11 +24,8 @@ public partial class PlayerScene : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Speed.HandleTurbo();
-		Direction.HandleDirection();
-
-		var movement = (Vector2) Direction * Speed * (float) delta;
-		MoveAndCollide(movement);
+		Speed.HandleTurboAsync();
+		Direction.HandlePlayerMovementAsync(this, delta);
 	}
 
 	# endregion
