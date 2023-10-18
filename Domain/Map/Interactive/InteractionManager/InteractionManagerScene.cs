@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using Godot;
 using Pokemon.Domain.Player.Structs;
-using Pokemon.Scenes.Misc.Interactions;
 using Pokemon.Scenes.Player;
 
 namespace Pokemon.Domain.Map.Interactive.InteractionManager;
 
-public partial class InteractionManager : Node2D
+public partial class InteractionManagerScene : Node2D
 {
 	# region ---- properties ---------------------------------------------------
 
