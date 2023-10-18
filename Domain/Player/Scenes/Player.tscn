@@ -1,21 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsxff2tey3ka1"]
+[gd_scene load_steps=7 format=3 uid="uid://bsxff2tey3ka1"]
 
-[ext_resource
-    type="Script"
-    path="res://Domain/Player/Scenes/PlayerScene.cs"
-    id="1_k4c6t"
-]
-[ext_resource
-    type="Script"
-    path="res://Domain/Player/Scenes/InteractionZone/InteractionZone.cs"
-    id="3_4ik65"
-]
-[ext_resource
-    type="PackedScene"
-    uid="uid://qx6frlddp01o"
-    path="res://Domain/Player/Scenes/Sprite/RedSprite.tscn"
-    id="4_tahi3"]
-
+[ext_resource type="Script" path="res://Domain/Player/Scenes/PlayerScene.cs" id="1_k4c6t"]
+[ext_resource type="Script" path="res://Domain/Player/Scenes/InteractionZone/InteractionZone.cs" id="3_4ik65"]
+[ext_resource type="PackedScene" uid="uid://cdqvrcsqyvnxp" path="res://Domain/Player/Scenes/Camera/Camera.tscn" id="4_olabh"]
+[ext_resource type="PackedScene" uid="uid://qx6frlddp01o" path="res://Domain/Player/Scenes/Sprite/RedSprite.tscn" id="4_tahi3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4e57"]
 radius = 2.0
@@ -37,11 +25,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_n4e57")
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-editor_draw_limits = true
-metadata/_edit_lock_ = true
-
 [node name="Red" parent="." instance=ExtResource("4_tahi3")]
 position = Vector2(0, -10)
 scale = Vector2(0.460152, 0.460152)
@@ -60,4 +43,7 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone/Area2D"]
 shape = SubResource("CapsuleShape2D_imo14")
+metadata/_edit_lock_ = true
+
+[node name="Camera" parent="." instance=ExtResource("4_olabh")]
 metadata/_edit_lock_ = true

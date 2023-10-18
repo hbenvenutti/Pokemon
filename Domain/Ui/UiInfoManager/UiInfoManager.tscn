@@ -1,10 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://biohiw0b5bxum"]
 
-[ext_resource
-    type="Script"
-    path="res://Domain/Ui/UiInfoManager/UiInfoManager.cs"
-    id="1_jtikr"
-]
+[ext_resource type="Script" path="res://Domain/Ui/UiInfoManager/UiInfoManagerScene.cs" id="1_jtikr"]
 
 [node name="UiInfoManager" type="Control"]
 layout_mode = 3

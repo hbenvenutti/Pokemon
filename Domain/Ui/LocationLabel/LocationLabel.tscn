@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxl4n17ufnef0"]
+
+[ext_resource type="Script" path="res://Domain/Ui/LocationLabel/LocationLabel.cs" id="1_vyynf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1cmk"]
+font_size = 12
+
+[node name="LocationLabel" type="Label"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1920.0
+offset_right = -1880.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Pallet Town"
+label_settings = SubResource("LabelSettings_b1cmk")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_vyynf")

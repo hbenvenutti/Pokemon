@@ -2,7 +2,7 @@
 
 [ext_resource
     type="Script"
-    path="res://Domain/Map/Interactive/InteractiveArea/InteractiveArea.cs"
+    path="res://Domain/Map/Interactive/InteractiveArea/InteractiveAreaScene.cs"
     id="1_wd4ot"
 ]
 
