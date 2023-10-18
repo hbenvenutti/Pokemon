@@ -4,8 +4,19 @@ namespace Pokemon.Domain.Ui.UiInfoManager;
 
 public partial class UiInfoManagerScene : Control
 {
+	# region ---- signals ------------------------------------------------------
+
+	private const string LocationNameChangedSignal = "LocationNameChanged";
+
+	[Signal]
+	public delegate void LocationNameChangedEventHandler(string locationName);
+
+	# endregion
+
+	# region ---- properties ---------------------------------------------------
+
 	private string locationName;
-	
+
 	[ExportGroup(name: "C#")]
 	[Export]
 	public string LocationName
@@ -14,14 +25,9 @@ public partial class UiInfoManagerScene : Control
 		set
 		{
 			locationName = value;
-			EmitSignal(nameof(LocationNameChangedEventHandler), value);
+			EmitSignal(LocationNameChangedSignal, value);
 		}
 	}
-
-	# region ---- signals ------------------------------------------------------
-
-	[Signal]
-	public delegate void LocationNameChangedEventHandler(string locationName);
 
 	# endregion
 
