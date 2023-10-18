@@ -1,13 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdqvrcsqyvnxp"]
-
-[ext_resource type="PackedScene" uid="uid://bxl4n17ufnef0" path="res://Domain/Ui/LocationLabel/LocationLabel.tscn" id="1_hecac"]
+[gd_scene format=3 uid="uid://cdqvrcsqyvnxp"]
 
 [node name="Camera" type="Camera2D"]
 zoom = Vector2(4, 4)
 editor_draw_limits = true
-
-[node name="LocationLabel" parent="." instance=ExtResource("1_hecac")]
-offset_left = 160.0
-offset_top = -124.0
-offset_right = 228.0
-offset_bottom = -104.0

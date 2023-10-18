@@ -10,9 +10,13 @@
 - pokemon spawning on high grass;
 - battle system;
 - pokedex;
+- pokemon following player on map;
+- pokemon spawning on night and day;
 
 # UI:
-- route/town name;
+- route/town name; DONE
+    - fix: anchor to top right corner; DONE
+
 - pokemon in party;
 - minimap;
 - pokemon in area;
