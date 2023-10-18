@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Godot;
+using Pokemon.Domain.Map.Interactive.InteractiveArea;
 using Pokemon.Domain.Player.Structs;
 
 namespace Pokemon.Domain.Map.Interactive.InteractionManager;
@@ -10,8 +11,8 @@ public partial class InteractionManagerScene : Node2D
 
 	private const string BaseText = "?";
 
-	private readonly IList<InteractiveArea.InteractiveArea> activeAreas =
-		new List<InteractiveArea.InteractiveArea>();
+	private readonly IList<InteractiveAreaScene> activeAreas =
+		new List<InteractiveAreaScene>();
 
 	[ExportGroup(name: "C#")]
 	[Export] private bool canInteract = true;
@@ -20,7 +21,7 @@ public partial class InteractionManagerScene : Node2D
 
 	# region ---- nodes --------------------------------------------------------
 
-	private Label label;
+	private Label Label => GetNode<Label>(path: "Label");
 
 	# endregion
 
@@ -28,9 +29,7 @@ public partial class InteractionManagerScene : Node2D
 
 	public override void _Ready()
 	{
-		label = GetNode<Label>(path: "Label");
-
-		label.Text = BaseText;
+		Label.Text = BaseText;
 	}
 
 	public override void _Process(double delta)
@@ -38,7 +37,7 @@ public partial class InteractionManagerScene : Node2D
 
 		if (activeAreas.Count == 0 || !canInteract)
 		{
-			label.Hide();
+			Label.Hide();
 			return;
 		}
 
@@ -51,14 +50,11 @@ public partial class InteractionManagerScene : Node2D
 
 		if (!@event.IsActionPressed(InputActions.Interact)) { return; }
 
-		if (activeAreas.Count == 0)
-		{
-			return;
-		}
+		if (activeAreas.Count == 0) { return; }
 
 		canInteract = false;
 
-		label.Hide();
+		Label.Hide();
 
 		activeAreas[0].Interact.Call();
 
@@ -73,21 +69,21 @@ public partial class InteractionManagerScene : Node2D
 
 		var globalPosition = activeArea.LabelPosition.GlobalPosition;
 
-		globalPosition.X -= label.Size.X / 2;
+		globalPosition.X -= Label.Size.X / 2;
 
-		label.GlobalPosition = globalPosition;
+		Label.GlobalPosition = globalPosition;
 
-		label.Show();
+		Label.Show();
 	}
 
 	# region ---- observers ----------------------------------------------------
 
-	public void RegisterArea(InteractiveArea.InteractiveArea area)
+	public void RegisterArea(InteractiveAreaScene area)
 	{
 		activeAreas.Add(area);
 	}
 
-	public void UnregisterArea(InteractiveArea.InteractiveArea area)
+	public void UnregisterArea(InteractiveAreaScene area)
 	{
 		activeAreas.Remove(area);
 	}

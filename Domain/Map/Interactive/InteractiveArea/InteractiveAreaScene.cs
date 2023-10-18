@@ -1,15 +1,18 @@
 using Godot;
+using Pokemon.Domain.Map.Interactive.InteractionManager;
 
 namespace Pokemon.Domain.Map.Interactive.InteractiveArea;
 
-public partial class InteractiveArea : Area2D
+public partial class InteractiveAreaScene : Area2D
 {
     # region ---- properties ---------------------------------------------------
 
     [ExportGroup(name: "C#")]
     [Export] public string ActionName { get; set; } = "interact";
 
-    private InteractionManager.InteractionManager InteractionManager { get; set; }
+    private InteractionManagerScene InteractionManager =>
+        GetNode<InteractionManagerScene>(path:"/root/InteractionManager");
+
     public Marker2D LabelPosition;
 
     public Callable Interact { get; set; }
@@ -20,29 +23,18 @@ public partial class InteractiveArea : Area2D
 
     public override void _Ready()
     {
-        InteractionManager =
-            GetNode<InteractionManager.InteractionManager>(path:"/root/InteractionManager");
-
         LabelPosition = GetNode<Marker2D>(path: "LabelPosition");
-
-        if (LabelPosition is null) GD.Print("Label Position is null");
     }
 
     # endregion
 
     # region ---- signals ------------------------------------------------------
 
-    private void OnAreaEntered(Area2D body)
-    {
-        GD.Print(what: $"OnAreaEntered");
+    private void OnAreaEntered(Area2D _) =>
         InteractionManager.RegisterArea(this);
-    }
 
-    private void OnAreaExited(Area2D body)
-    {
-        GD.Print(what: $"OnBodyExited");
+    private void OnAreaExited(Area2D _) =>
         InteractionManager.UnregisterArea(this);
-    }
 
     # endregion
 }
