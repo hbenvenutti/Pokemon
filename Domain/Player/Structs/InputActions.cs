@@ -3,7 +3,7 @@ namespace Pokemon.Domain.Player.Structs;
 public struct InputActions
 {
     public const string Interact = "ui_interact";
-    public const string SpeedUp = "ui_speed_up";
+    public const string Run = "ui_speed_up";
 
     public const string MoveUp = "ui_up";
     public const string MoveDown = "ui_down";

@@ -1,6 +1,4 @@
 using System.Threading.Tasks;
-using Godot;
-using Pokemon.Domain.Player.Structs;
 
 namespace Pokemon.Domain.Player;
 
@@ -8,9 +6,10 @@ public class Speed
 {
     # region ---- properties ---------------------------------------------------
 
-    private const byte SpeedBoost = 2;
+    private const byte RunningSpeed = 2;
     private readonly byte baseSpeed = 50;
     private byte value;
+
     public bool IsBoosted => value > baseSpeed;
 
     # endregion
@@ -34,7 +33,7 @@ public class Speed
 
     private void SpeedUp(byte amount) => value *= amount;
 
-    public void SpeedDown(byte amount) => value /= amount;
+    private void SpeedDown(byte amount) => value /= amount;
 
     private void ResetSpeed() => value = baseSpeed;
 
@@ -42,18 +41,11 @@ public class Speed
 
     # region ---- behaviors ----------------------------------------------------
 
-    public async void HandleTurboAsync() => await Task.Run(() =>
-    {
-        if (Input.IsActionJustPressed(InputActions.SpeedUp))
-        {
-            SpeedUp(amount: SpeedBoost);
-        }
+    public async void RunAsync() => await Task.Run(() =>
+        SpeedUp(amount: RunningSpeed)
+    );
 
-        if (Input.IsActionJustReleased(InputActions.SpeedUp))
-        {
-            ResetSpeed();
-        }
-    });
+    public async void StopRunningAsync() => await Task.Run(ResetSpeed);
 
     # endregion
 

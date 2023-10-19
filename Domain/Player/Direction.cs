@@ -1,8 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Godot;
-using Pokemon.Domain.Player.Structs;
-using Pokemon.Scenes.Player;
+using  Pokemon.Domain.Player.Scenes;
 
 namespace Pokemon.Domain.Player;
 
@@ -27,38 +26,32 @@ public class Direction
 
     # region ---- behaviors ----------------------------------------------------
 
-    private async Task HandleDirectionAsync() => await Task.Run(() =>
-    {
-        value = new Vector2
-        {
-            X = Input.GetActionStrength(InputActions.MoveRight) -
-                Input.GetActionStrength(InputActions.MoveLeft),
-
-            Y = Input.GetActionStrength(InputActions.MoveDown) -
-                Input.GetActionStrength(InputActions.MoveUp)
-        }.Normalized();
-
-        if (Math.Abs(Math.Abs(value.X) - Math.Abs(value.Y)) < Tolerance)
-        {
-            /* formula: | |x| - |y| | < tolerance
-             *
-             * The formula is used to avoid precision loss. x == y.
-             *
-             * This is to prevent the player from moving diagonally.
-             */
-
-            value = Vector2.Zero;
-        }
-    });
-
-    public async void HandlePlayerMovementAsync(
+    public async void MoveAsync(
         PlayerScene player,
         double delta
     )
     {
-        await HandleDirectionAsync();
+        await BlockDiagonalMovementAsync();
         player.MoveAndCollide(motion: value * player.Speed * (float) delta);
     }
+
+    # endregion
+
+    # region ---- private methods ----------------------------------------------
+
+    private async Task BlockDiagonalMovementAsync() => await Task.Run(() =>
+    {
+        if (!IsDiagonalEqual()) { return; }
+
+        value = Vector2.Zero;
+    });
+
+    private bool IsDiagonalEqual() =>
+        (Math.Abs(Math.Abs(value.X) - Math.Abs(value.Y)) < Tolerance);
+
+    /* formula: | |x| - |y| | < tolerance
+     * To avoid precision loss. x == y.
+     */
 
     # endregion
 
@@ -76,4 +69,6 @@ public class Direction
     public override string ToString() => $"({value.X}, {value.Y})";
 
     # endregion
+
+
 }

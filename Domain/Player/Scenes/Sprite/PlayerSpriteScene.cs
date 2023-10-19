@@ -1,6 +1,5 @@
 using Godot;
 using Pokemon.Domain.Player.Structs;
-using Pokemon.Scenes.Player;
 
 namespace Pokemon.Domain.Player.Scenes.Sprite;
 

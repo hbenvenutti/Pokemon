@@ -1,14 +1,16 @@
 using Godot;
-using Pokemon.Domain.Player;
+using Pokemon.Domain.Player._Input;
 
-namespace Pokemon.Scenes.Player;
+namespace Pokemon.Domain.Player.Scenes;
 
 public partial class PlayerScene : CharacterBody2D
 {
 	# region ---- properties ---------------------------------------------------
 
 	public Speed Speed { get; } = new();
-	public Direction Direction { get; } = Vector2.Zero;
+	public Direction Direction { get; set; } = Vector2.Zero;
+
+	private InputHandler inputHandler = null!;
 
 	# endregion
 
@@ -16,6 +18,7 @@ public partial class PlayerScene : CharacterBody2D
 
 	public override void _Ready()
 	{
+		inputHandler = new InputHandler(player: this);
 	}
 
 	# endregion
@@ -24,8 +27,8 @@ public partial class PlayerScene : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Speed.HandleTurboAsync();
-		Direction.HandlePlayerMovementAsync(this, delta);
+		inputHandler.HandleInput();
+		Direction.MoveAsync(this, delta);
 	}
 
 	# endregion

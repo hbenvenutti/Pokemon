@@ -1,5 +1,4 @@
 using Godot;
-using Pokemon.Scenes.Player;
 
 namespace Pokemon.Domain.Player.Scenes.InteractionZone;
 
